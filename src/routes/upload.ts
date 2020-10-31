@@ -1,5 +1,4 @@
 import { Router } from 'express';
-import pdf from 'pdf-poppler';
 import fs from 'fs';
 import rimraf from 'rimraf';
 import { Poppler } from 'node-poppler';
@@ -11,7 +10,6 @@ const router = Router();
 router.post('/upload', upload.any(), async (req, res) => {
   const { filename } = req.files[0];
   const poppler = new Poppler();
-  const filePath = filename.split('.pdf')[0];
   const file = `./src/uploads/${filename}`;
   const options = {
     firstPageToConvert: 1,
