@@ -1,8 +1,8 @@
 import { Router } from 'express';
-import userAPI from './user';
+import uploadAPI from './upload';
 
 const router = Router();
 
-router.use('/', userAPI);
+router.use('/', uploadAPI);
 
 export default router;
