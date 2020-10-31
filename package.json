@@ -13,16 +13,21 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "aws-sdk": "^2.782.0",
     "axios": "^0.21.0",
     "cors": "^2.8.5",
     "dotenv": "^8.2.0",
     "express": "^4.17.1",
     "express-validator": "^6.6.1",
-    "log4js": "^6.3.0"
+    "log4js": "^6.3.0",
+    "multer": "^1.4.2",
+    "node-poppler": "^1.8.5",
+    "rimraf": "^3.0.2"
   },
   "devDependencies": {
     "@types/cors": "^2.8.8",
     "@types/express": "^4.17.8",
+    "@types/multer": "^1.4.4",
     "@typescript-eslint/eslint-plugin": "^4.4.1",
     "@typescript-eslint/parser": "^4.4.1",
     "eslint": "^7.11.0",
