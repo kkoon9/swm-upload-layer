@@ -1,11 +1,4 @@
 import multer from 'multer';
-import fs from 'fs';
-
-try {
-  fs.mkdirSync(`${__dirname}/../uploads`);
-} catch (e) {
-  if (e.code !== 'EEXIST') throw e;
-}
 
 const storage = multer.diskStorage({
   destination: (req, file, cb) => {

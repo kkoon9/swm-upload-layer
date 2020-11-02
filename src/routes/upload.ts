@@ -4,10 +4,11 @@ import rimraf from 'rimraf';
 import { Poppler } from 'node-poppler';
 import getArray from '../modules/getArray';
 import upload from '../modules/multer';
+import makeDir from '../modules/directoryMake';
 
 const router = Router();
 
-router.post('/upload', upload.any(), async (req, res) => {
+router.post('/upload', makeDir, upload.any(), async (req, res) => {
   const { filename } = req.files[0];
   const poppler = new Poppler();
   const file = `./src/uploads/${filename}`;
