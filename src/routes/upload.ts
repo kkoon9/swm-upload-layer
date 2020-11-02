@@ -29,7 +29,6 @@ router.post('/upload', upload.any(), async (req, res) => {
       rimraf(`${__dirname}/../uploads`, () => {
         console.log('done');
       });
-      console.log(result);
       res.json({
         success: true,
         data: result
