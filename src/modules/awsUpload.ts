@@ -1,5 +1,6 @@
 import AWS from 'aws-sdk';
 import 'dotenv/config';
+import { uuid } from 'uuidv4';
 
 let undefinedValue : AWS.S3.ManagedUpload.ManagedUploadOptions;
 
@@ -13,7 +14,7 @@ const awsUpload = (file, base64data) => {
   return new Promise((resolve) => {
     const params = {
       Bucket: 'connect-class-test',
-      Key: file,
+      Key: `${Date.now() + uuid()}.png`,
       Body: base64data,
       ACL: 'public-read'
     };
