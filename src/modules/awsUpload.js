@@ -1,6 +1,6 @@
 const AWS = require('aws-sdk');
 const dotenv = require('dotenv');
-const uuid = require('uuidv4');
+const { v4: uuidv4 } = require('uuid');
 
 dotenv.config();
 
@@ -14,7 +14,7 @@ const awsUpload = (file,base64data) => {
   return new Promise((resolve) => {
     const params = {
       Bucket: 'connect-class-test',
-      Key: `${Date.now() + uuid()}.png`,
+      Key: `${Date.now() + uuidv4()}.png`,
       Body: base64data,
       ACL: 'public-read'
     };

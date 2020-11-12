@@ -1,8 +1,7 @@
 const express = require("express");
-
 const fs = require('fs');
 const rimraf = require('rimraf');
-const Poppler = require('node-poppler');
+const { Poppler } = require('node-poppler');
 const getArray = require('../modules/getArray');
 const upload = require('../modules/multer');
 const makeDir = require('../modules/directoryMake');
