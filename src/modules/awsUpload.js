@@ -1,8 +1,8 @@
-import AWS from 'aws-sdk';
-import 'dotenv/config';
-import { uuid } from 'uuidv4';
+const AWS = require('aws-sdk');
+const dotenv = require('dotenv');
+const uuid = require('uuidv4');
 
-let undefinedValue : AWS.S3.ManagedUpload.ManagedUploadOptions;
+dotenv.config();
 
 AWS.config.update({
   accessKeyId: process.env.accessKeyId,
@@ -10,7 +10,7 @@ AWS.config.update({
 });
 const s3 = new AWS.S3();
 
-const awsUpload = (file, base64data) => {
+const awsUpload = (file,base64data) => {
   return new Promise((resolve) => {
     const params = {
       Bucket: 'connect-class-test',
@@ -18,7 +18,7 @@ const awsUpload = (file, base64data) => {
       Body: base64data,
       ACL: 'public-read'
     };
-    s3.upload(params, undefinedValue, (err, res) => {
+    s3.upload(params,'',(err,res) => {
       if (!err) {
         resolve(res.Location);
       }
@@ -26,4 +26,5 @@ const awsUpload = (file, base64data) => {
   });
 };
 
-export default awsUpload;
+module.exports = awsUpload;
+

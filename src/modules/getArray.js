@@ -1,8 +1,8 @@
-import upload from './getUrl';
+const upload = require('./getUrl');
 
 async function getArray(filePath) {
   const result = await upload(filePath);
   return result;
 }
 
-export default getArray;
+module.exports = getArray;

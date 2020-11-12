@@ -1,11 +1,11 @@
-import fs from 'fs';
-import awsUpload from './awsUpload';
+const fs = require('fs');
+const awsUpload = require('./awsUpload');
 
 // reg ex to match
 const re = /\.png$/;
 
 const upload = async (name) => {
-  const result : any = [];
+  const result = [];
   const test = fs.readdirSync(`${__dirname}/../${name}/`);
   const matches = test.filter((text) => {
     return re.test(text);
@@ -20,11 +20,11 @@ const upload = async (name) => {
       // Buffer Pattern; how to handle buffers; straw, intake/outtake analogy
       const base64data = Buffer.from(str);
       // eslint-disable-next-line no-await-in-loop
-      const url = await awsUpload(file, base64data);
+      const url = await awsUpload(file,base64data);
       result.push(url);
     }
   }
   return result;
 };
 
-export default upload;
+module.exports = upload;
